@@ -1,0 +1,45 @@
+.card{
+    height: 500px;
+    margin: 25px;
+    padding: 25px;
+}
+h4,h6{
+    font-weight: 400;
+}
+.center img {
+    text-decoration: solid;
+    color: inherit;
+ border: none;
+ outline: none;
+ height: 250px;
+ width: 500px;
+ margin: 20px 0px;
+}
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%,-50%);
+}
+.card-table{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: none;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: none;
+    
+    margin-left: 50px; 
+
+
+}
+.center .btn{
+    font-size: 14px;
+    margin-top: 20px;
+    font-weight: 400;
+    padding: 12px 72px;
+    border-radius: 3px;
+}

@@ -1,0 +1,53 @@
+<div >
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark"  style="background-color: aquamarine;">
+        <a class="navbar-brand" href="#">Fastrack</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarText">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a  routerLink="/adimlogin" class="nav-link" [hidden]="flag">Seller</a>
+            </li>&nbsp;&nbsp;
+            <li class="nav-item" [hidden]="flag">
+                <div class="dropdown" style="font-size: 24px; font-family: Georgia, 'Times New Roman', Times, serif">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                     Login
+                    </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                      <a  class="dropdown-item" routerLink="/login">User</a>
+                      <!-- <a class="dropdown-item" routerLink="/seller">Seller Login</a> -->
+                      <a routerLink="/register" class="dropdown-item" >Register</a>
+                    </div>
+                  </div>
+            </li>
+          </ul>
+          <span class="navbar-text">
+           
+          </span>
+         
+        <div class="align-item-center d-flex">
+
+
+            <button class="btn btn-dark" style="margin: right 10px;" [hidden]="!flag" (click)="logout()">
+              Logout
+               <span style="font-size: 24px; font-family: Georgia, 'Times New Roman', Times, serif;"></span>
+           </button>
+       
+           <button routerLink="/cart" class="btn btn-dark"> 
+              <i style="font-size: 25px; color: rgb(125, 160, 124);" class="fas fa-cart-plus" ></i>
+             <div style="font: size 8px;" class="badge bg-danger badge-pill"></div>   
+            </button>
+       
+       </div>
+
+
+
+        </div>
+      </nav>
+</div>
+
+

@@ -1,0 +1,133 @@
+<div *ngIf="submitted">
+  <div  style="background-color: rgb(26, 153, 26); border: 1px solid white;">
+    <div style="color: rgb(243, 243, 239); margin:80px; padding:180px;" > 
+     <i style="font-size: 80px; color: #f3f3ef; " class="fas fa-check-circle" ></i>
+     <p style="font-size: 40px;">order placed Successfully!</p>
+     <a routerLink="/"><button class="btn btn-primary">Go back</button></a>
+ </div></div>
+</div>
+
+<section class="vh-100" style="background-color: #eee; " *ngIf="!submitted">
+  <div class="container h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+      <div class="col-lg-10 col-xl-10">
+        <div class="card text-black" style="border-radius: 25px;">
+          <div class="card-body p-md-5">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-6 col-xl-5 order-2 order-lg-1">
+
+                <p class="text-center h1 fw-bold mb-5 mx-1 mx-md-4 mt-4" >Billing details</p>
+
+                <form class="mx-1 mx-md-4" [formGroup]="registerForm">
+
+                  <div class="d-flex flex-row align-items-center mb-4">
+                   
+                    <div class="form-outline flex-fill mb-0">
+                      <label class="form-label" for="form3Example1c">Your Name</label>
+                      <input type="text" class="form-control form-control-sm" formControlName="name" />
+              <p *ngIf="(registerForm.controls['name'].dirty ||
+                    registerForm.controls['name'].touched || 
+                    registerForm.controls['name'].pristine) &&
+                    registerForm.controls['name'].errors" class="text-danger">
+                  This field is required!
+              </p>
+                     
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                    <div class="form-outline flex-fill mb-0">
+                     
+                      <label class="form-label" >Phone</label>
+                      <input type="text" class="form-control form-control-sm" formControlName="phone"
+                      pattern="[7-9]{1}[0-9]{9}" title="enter valid phone number"/>
+              <p *ngIf="(registerForm.controls['phone'].dirty ||
+              registerForm.controls['phone'].touched|| 
+              registerForm.controls['phone'].pristine) &&
+              registerForm.controls['phone'].errors" class="text-danger">
+             Enter valid phone number!
+         </p>
+         <!-- <div *ngIf="registerForm.controls['phone'].errors.pattern">Please, Enter 10 digit Mobile Number.</div>   -->
+         
+                    </div>
+                  </div>
+                  <div class="d-flex flex-row align-items-center mb-4">
+                     
+                      <div class="form-outline flex-fill mb-0">
+                       
+                        <label class="form-label" >Address</label>
+                        <input type="text" class="form-control form-control-sm" formControlName="address" 
+                        />
+              <p *ngIf="(registerForm.controls['address'].dirty ||
+                   registerForm.controls['address'].touched|| 
+                   registerForm.controls['address'].pristine) &&
+                   registerForm.controls['address'].errors" class="text-danger">
+                  This field is required !
+              </p>
+                      </div>
+                    </div>
+                    <div class="d-flex flex-row align-items-center mb-4">
+                     
+                      <div class="form-outline flex-fill mb-0">
+                       
+                        <label class="form-label" >Pincode</label>
+                        <input type="number" class="form-control form-control-sm" formControlName="pincode"
+                        pattern="[1-9]{1}[0-9]{5}" />
+              <p *ngIf="(registerForm.controls['pincode'].dirty ||
+                   registerForm.controls['pincode'].touched|| 
+                   registerForm.controls['pincode'].pristine) &&
+                   registerForm.controls['pincode'].errors" class="text-danger">
+                   enter valid pincode!
+              </p>
+                      </div>
+                    </div>
+                   
+                    <div class="mb-3 mt-3">
+                      <div class="float-end ">
+                       
+                        <div class="form-check">
+                          <input class="form-check-input" type="checkbox"  name="option1" value="something" checked disabled>
+                          <label class="form-check-label"><strong>COD : {{grandTotal | currency:'INR'}}</strong></label>
+                        <p class="text-danger">  Only COD is available for your order! </p>
+                        </div>
+                       </div>
+  </div>
+
+                  <div class="d-flex justify-content-center mx-4 mb-3 mb-lg-4">
+                    <button [disabled]="registerForm.invalid" type="submit" class="btn btn-primary" (click)="apply()" >
+                      Place Order
+                  </button> &nbsp; &nbsp;
+                  <button  type="submit" class="btn btn-danger" (click)="cancel()" >
+                    Cancel
+                </button>
+
+                  </div>
+
+                </form>
+
+              </div>
+              <div class="col-md-10 col-lg-6 col-xl-7 d-flex align-items-top order-1 order-lg-2"  style="margin-top: 100px;">
+                <div class="container justify-content">
+                      <div class="card mb-3" style="max-width: auto;" *ngFor="let item of product; let i=index">
+                        <div class="row no-gutters">
+                          <div class="col-md-4">
+                            <img style="max-width: auto;" src="{{item.image}}" class="card-img" alt="...">
+                          </div>
+                          <div class="col-md-8">
+                            <div class="card-body">
+                              <h5 class="card-title">{{item.price | currency:'INR'}}</h5>
+                              <!-- <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p> -->
+                              <p class="card-text"><small class="text-muted" >{{item.productName}} </small></p>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                  </div>
+               
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
